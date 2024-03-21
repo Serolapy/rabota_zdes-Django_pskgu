@@ -1,4 +1,4 @@
-"""
+﻿"""
 Definition of urls for rabota_zdes.
 """
 

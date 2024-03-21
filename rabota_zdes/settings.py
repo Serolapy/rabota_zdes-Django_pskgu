@@ -1,4 +1,4 @@
-"""
+﻿"""
 Django settings for rabota_zdes project.
 
 Based on 'django-admin startproject' using Django 2.1.2.
