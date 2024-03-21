@@ -43,3 +43,13 @@ def about(request):
             'year':datetime.now().year,
         }
     )
+def links (request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/links.html',
+        {
+            'title':'Полезные ссылки',
+            'year':datetime.now().year,
+        }
+    )

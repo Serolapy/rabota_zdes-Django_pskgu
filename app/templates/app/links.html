@@ -1,0 +1,14 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+{% load static %}
+
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+<ul class="list-group list-group-flush my_links-img-div">
+    <li class="list-group-item"><a href="https://hh.ru" target="_blank"><img src="{% static 'app/content/links/hhru.jpg' %}" /></a></li>
+    <li class="list-group-item"><a href="https://avito.ru" target="_blank"><img src="{% static 'app/content/links/avito.jpg' %}" /></a></li>
+    <li class="list-group-item"><a href="https://superjob.ru/" target="_blank"><img src="{% static 'app/content/links/superjob.jpg' %}" /></a></li>
+</ul>
+{% endblock %}

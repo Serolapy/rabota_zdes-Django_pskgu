@@ -50,6 +50,7 @@
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
     <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\content\links\" />
     <Folder Include="app\static\app\fonts\" />
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
@@ -57,6 +58,11 @@
     <Folder Include="rabota_zdes\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\links\avito.jpg" />
+    <Content Include="app\static\app\content\links\hhru.jpg" />
+    <Content Include="app\static\app\content\links\superjob.jpg" />
+    <Content Include="app\static\app\content\logo.png" />
+    <Content Include="app\templates\app\links.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
