@@ -1,0 +1,36 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+{% load static %}
+
+<h2>{{ title }}</h2>
+{% if form != None %}
+<form method="post" id="pool_form">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Отправить">
+</form>
+
+<script>
+    jQuery(document).ready(function ($) {
+
+        $('input, textarea').focus(function() {
+            $(this).addClass('toogle-color-on-focus');
+        }).blur(function() {
+            $(this).removeClass('toogle-color-on-focus');
+        });
+    });
+</script>
+{% else %}
+<div>
+    <h3>Отзыв отправлен!</h3>
+    <ul>
+        <li><b>Email:</b> {{data.email}}</li>
+        <li><b>Оцените работу сайта:</b> {{data.rating}}</li>
+        <li><b>Выберите тип обращения:</b> {{data.message_type}}</li>
+        <li><b>Ваши предложения и замечания:</b> {{data.text}}</li>
+        <li><b>Прислать ответ на электронную почту?:</b> {{data.send_email}}</li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

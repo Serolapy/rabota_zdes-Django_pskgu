@@ -44,3 +44,14 @@ input[type="checkbox"].input-validation-error {
 .my_links-img-div *{
     max-width: 200px;
 }
+
+
+/**
+    Для страницы /links.html
+*/
+
+/* при фокусе на элемент */
+.toogle-color-on-focus {
+    background-color: lawngreen;
+    color: black;
+}
