@@ -8,6 +8,9 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
 
+from django.db import models
+from .models import Comment
+
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""
     username = forms.CharField(max_length=254,
@@ -26,3 +29,9 @@ class PoolForm (forms.Form):
     message_type = forms.ChoiceField(label='Выберите тип обращения', choices=[('1', 'Предложение'), ('2', 'Просьба'), ('3', 'Пожелание')])
     text = forms.CharField(label='Ваши предложения и замечания', widget=forms.Textarea())
     send_email = forms.BooleanField(label='Прислать ответ на электронную почту?', required=False)
+
+class CommentForm (forms.ModelForm):
+    class Meta:
+        model = Comment # используемая модель
+        fields = ('text',) # требуется заполнить только поле text
+        labels = {'text': "Комментарий"} # метка к полю формы text
