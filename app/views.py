@@ -2,11 +2,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
-from django.db import models
-from .models import Vacancy
-
-from .models import Comment # использование модели комментариев
-from .forms import CommentForm # использование формы ввода комментария
+from .models import Comment, Vacancy # использование модели комментариев
+from .forms import CommentForm, VacancyForm # использование формы ввода комментария
 
 """
 Definition of views.
@@ -120,17 +117,6 @@ def registration(request):
            )
 
 def vacancy (request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/vacancy.html',
-        {
-            'title':'Вакансии',
-            'year':datetime.now().year,
-        }
-    )
-
-def vacancy (request):
     """Renders the blog page."""
     assert isinstance(request, HttpRequest)
     posts = Vacancy.objects.all() # запрос на выбор всех статей блога из модели
@@ -172,6 +158,30 @@ def vacancyPost(request, parametr):
             'post_1': post_1, # передача конкретной статьи в шаблон веб-страницы
             'year':datetime.now().year,
             'comments': comments, # передача всех комментариев к данной статье в шаблон веб-страницы
+            'form': form, # передача формы добавления комментария в шаблон веб-страницы
+        }
+    )
+
+def vacancyNew(request):
+    #form = VacancyForm(request.POST, request.FILES)
+    if request.method == "POST": # после отправки данных формы на сервер методом POST
+        form = VacancyForm(request.POST, request.FILES)
+        if form.is_valid():
+            vacancy_f = form.save(commit=False)
+            vacancy_f.author = request.user # добавляем (так как этого поля нет в форме) в модель Комментария (Comment) в поле автор авторизованного пользователя
+            vacancy_f.posted = datetime.now() # добавляем в модель Комментария (Comment) текущую дату
+            vacancy_f.save() # сохраняем изменения после добавления полей
+            
+            return redirect('vacancy') # переадресация на ту же страницу статьи после отправки комментария
+    else:
+        form = VacancyForm() # создание формы для ввода комментария
+    
+    
+    return render(
+        request,
+        'app/vacancyNew.html',
+        {
+            'year':datetime.now().year,
             'form': form, # передача формы добавления комментария в шаблон веб-страницы
         }
     )

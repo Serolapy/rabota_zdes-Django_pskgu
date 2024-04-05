@@ -16,6 +16,7 @@ from django.contrib.auth.models import User
 class Vacancy(models.Model):
     title = models.CharField(max_length = 64, unique_for_date = 'posted', verbose_name = 'Заголовок')
     description = models.CharField(max_length = 256, verbose_name = 'Краткое описание')
+    image = models.FileField(default = 'temp.jpg', verbose_name = 'Картинка')
     content = models.TextField(verbose_name = 'Описание вакансии')
     author = models.ForeignKey(User, null=True, blank=True, on_delete = models.SET_NULL, verbose_name = "Автор")
     posted = models.DateTimeField(default = datetime.now(), db_index = True, verbose_name = "Опубликована")

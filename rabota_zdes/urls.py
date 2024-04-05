@@ -7,7 +7,9 @@ from django.urls import path
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from app import forms, views
-
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -31,5 +33,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('registration/', views.registration, name= 'registration'),
     path('vacancy/', views.vacancy, name= 'vacancy'),
+    path('vacancy/new', views.vacancyNew, name= 'vacancyNew'),
     path('vacancy/<int:parametr>/', views.vacancyPost, name='vacancyPost'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()

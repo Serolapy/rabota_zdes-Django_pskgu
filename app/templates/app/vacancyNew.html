@@ -1,0 +1,19 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+{% load static %}
+
+<h2>{{ title }}</h2>
+{% if form != None %}
+<form method="post" id="pool_form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Разместить вакансию">
+</form>
+
+{% else %}
+<div>
+    <h3>Вакансия размещена!</h3>
+</div>
+{% endif %}
+{% endblock %}

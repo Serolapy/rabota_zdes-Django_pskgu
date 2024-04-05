@@ -3,6 +3,9 @@
 
 <h2>{{ title }}</h2>
 <br />
+{% if user.is_superuser %}
+<a href="{% url 'vacancyNew' %}">Добавить вакансию</a>
+{% endif %}
 
 {% for post in posts %}
 <hr />
