@@ -185,3 +185,15 @@ def vacancyNew(request):
             'form': form, # передача формы добавления комментария в шаблон веб-страницы
         }
     )
+
+def video(request):
+    """Renders the about page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/video.html',
+        {
+            'title':'Видео',
+            'year':datetime.now().year,
+        }
+    )

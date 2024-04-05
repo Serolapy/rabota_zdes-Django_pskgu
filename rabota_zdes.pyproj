@@ -73,6 +73,7 @@
     <Content Include="app\templates\app\registration.html" />
     <Content Include="app\templates\app\vacancy.html" />
     <Content Include="app\templates\app\vacancyPost.html" />
+    <Content Include="app\templates\app\video.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

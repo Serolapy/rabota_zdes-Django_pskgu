@@ -29,6 +29,7 @@
                     <li><a href="{% url 'contact' %}">Контакты</a></li>
                     <li><a href="{% url 'links' %}">Полезные ссылки</a></li>
                     <li><a href="{% url 'vacancy' %}">Вакансии</a></li>
+                    <li><a href="{% url 'video' %}">Видео</a></li>
                     {% if not user.is_authenticated %}
                     <li><a href="{% url 'registration' %}">Регистрация</a></li>
                     {% endif %}

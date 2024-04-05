@@ -17,6 +17,7 @@ urlpatterns = [
     path('links/', views.links, name='links'),
     path('pool/', views.pool, name='pool'),
     path('about/', views.about, name='about'),
+    path('video/', views.video, name='video'),
     path('login/',
          LoginView.as_view
          (
