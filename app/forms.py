@@ -2,8 +2,8 @@
 Definition of forms.
 """
 
-from tkinter import Widget
-from typing_extensions import Required
+#from tkinter import Widget
+#from typing_extensions import Required
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
